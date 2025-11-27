@@ -63,6 +63,25 @@ async function removeDBCar(carId) {
         console.log(err);
     }
 }
+
+async function changeDBCar(car) {
+    try {
+        const response = await fetch(`${SERVER}/cars/${car.id}`, {
+            method: 'PUT',
+            body: JSON.stringify(item),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if (!response.ok) {
+            throw `Error ${response.status} de la BBDD: ${response.statusText}`
+        }
+        const changedItem = await response.json();
+        return changedItem;
+    } catch (err) {
+        console.log(err);
+    }
+}
 // GET (Uno) - Acepta ID suelto u Objeto con id
 async function getDBItem(collection, idOrObject) {
     const id = (typeof idOrObject === 'object') ? idOrObject.id : idOrObject;
@@ -159,6 +178,7 @@ async function editDBItem(collection, idOrObject, changes) {
 
 
 export {
+    changeDBCar,
     removeDBCar,
     validateDBCar,
     getDBCarsNotValidated,
