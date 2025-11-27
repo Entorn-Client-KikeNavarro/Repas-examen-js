@@ -1,7 +1,6 @@
+import './style.scss'
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import * as api from './api.js'
 
 document.querySelector('#app').innerHTML = `
     <div class="container">
@@ -98,3 +97,67 @@ document.querySelector('#app').innerHTML = `
   </div>
 
 `
+
+document.addEventListener('DOMContentLoaded', () => {
+    init()
+})
+
+async function init() {
+    try {
+        const families = await api.getDBfamilies()
+        families //.sort((a, b) => a.cliteral - b.cliteral)
+        .forEach(family => {
+            renderFamily(family)
+            renderSelectFamilies(family)
+        });
+        
+    } catch (error) {
+        renderMessage('error', error)
+    }
+}
+
+function renderMessage(type, message) {
+    const newMessage = document.createElement("div")
+    newMessage.className = type + " alert alert-danger alert-dismissible"
+    newMessage.setAttribute("role", "alert")
+    newMessage.innerHTML = `
+  <span>${message}</span>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="this.parentElement.remove()"></button>
+    `
+    document.getElementById('messages').appendChild(newMessage)
+}
+
+function renderFamily(family) {
+    const tbody = document.querySelector(`#families tbody`)
+    const newTr = document.createElement("tr")
+    newTr.innerHTML = `
+    <tr>${family.id}</tr>
+    <tr>${family.cliteral}</tr>
+    <tr>${family.vliteral}</tr>
+    `
+    tbody.appendChild(newTr)
+
+    newTr.addEventListener("click", async () => {
+        try{
+            const ciclos = await api.getDBItems()
+            newTr.classList.add("selected")
+            ciclos.forEach((ciclo) => {
+                renderCiclo(ciclo)
+            })
+        }catch (error) {
+            renderMessage('error', error)
+        }
+    })
+}
+
+async function renderSelectFamilies(family) {
+    const select = document.getElementById("form-idFamily")
+    const newOption = document.createElement("option")
+    newOption.value = family.idFamily
+    newOption.textContent = family.cliteral
+    select.appendChild(newOption)
+}
+
+function renderCiclo(){
+
+}

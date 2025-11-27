@@ -1,17 +1,22 @@
 const SERVER = "http://localhost:3000";
-
+const TABLE = "courses"
 // GET (Todos)
-async function getDBItems(collection) {
-    try {
-        const response = await fetch(SERVER + "/" + collection);
+async function getDBItems() {
+        const response = await fetch(`${SERVER}/${TABLE}`);
         if (!response.ok) {
             throw `Error ${response.status} de la BBDD: ${response.statusText}`
         }
         const items = await response.json();
         return items;
-    } catch (err) {
-        console.log(err);
-    }
+}
+
+async function getDBfamilies() {
+        const response = await fetch(`${SERVER}/families`);
+        if (!response.ok) {
+            throw `Error ${response.status} de la BBDD: ${response.statusText}`
+        }
+        const items = await response.json();
+        return items;
 }
 
 // GET (Uno) - Acepta ID suelto u Objeto con id
@@ -108,6 +113,7 @@ async function editDBItem(collection, idOrObject, changes) {
 }
 
 export {
+    getDBfamilies,
     getDBItems,
     getDBItem,
     addDBItem,
