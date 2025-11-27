@@ -31,7 +31,7 @@ document.querySelector("#app").innerHTML = `
             <div class="container">
                 <div class="row justify-content-center">
                     <!-- Aquí los coches -->
-                    <form id="form-car">
+                    <form id="form-car" novalidate>
                         <fieldset class="border">
                             <legend>Modificar anuncio</legend>
                             <!-- Aquí los inputs y botones del form -->
@@ -40,7 +40,7 @@ document.querySelector("#app").innerHTML = `
                                     Id:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="number" class="form-control" id="id">
+                                    <input type="number" class="form-control" id="id" disabled>
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -48,7 +48,7 @@ document.querySelector("#app").innerHTML = `
                                     Nombre:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="name">
+                                    <input type="text" class="form-control" id="name" required minlength="5" maxlength="20">
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -56,7 +56,7 @@ document.querySelector("#app").innerHTML = `
                                     Kms.:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="number" class="form-control" id="km">
+                                    <input type="number" class="form-control" id="km" required min="0">
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -64,7 +64,7 @@ document.querySelector("#app").innerHTML = `
                                     Motor revisado:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="radio" class="form-check-input" name="motor" value="true">
+                                    <input type="radio" class="form-check-input" name="motor" value="true" required>
                                     <label class="form-check-label">Sí</label>
                                     <input type="radio" class="form-check-input" name="motor" value="false">
                                     <label class="form-check-label">No</label>
@@ -75,7 +75,7 @@ document.querySelector("#app").innerHTML = `
                                     Precio:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="number" class="form-control" id="price">
+                                    <input type="number" class="form-control" id="price" required min="0">
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -83,7 +83,7 @@ document.querySelector("#app").innerHTML = `
                                     Procedencia:
                                 </label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="origin"></select>
+                                    <select class="form-control" id="origin" required></select>
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -91,7 +91,7 @@ document.querySelector("#app").innerHTML = `
                                     Foto:
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="img">
+                                    <input type="text" class="form-control" id="img" disabled>
                                 </div>
                             </div>
 

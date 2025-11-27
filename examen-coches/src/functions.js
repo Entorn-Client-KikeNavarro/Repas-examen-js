@@ -17,7 +17,43 @@ export default async function init() {
     .forEach((car) => renderCar(car));
   } catch (error) {
     console.error(error);
+    return
   }
+  //listeners del form
+    const form = document.getElementById('form-car')
+    form.addEventListener('submit', async (event) => {
+    event.preventDefault()
+
+    if (!formHasErrors()) {
+      
+        const payload = {
+          id: Number(document.getElementById('id').value),
+          name: document.getElementById('name').value,
+          km: Number(document.getElementById('km').value),
+          price: Number(document.getElementById('price').value),
+          validated: false,
+          origin: Number(document.getElementById('origin').value),
+          img: document.getElementById('img').value,
+          motor: document.querySelector(`#form-car input[name="motor"]:checked`).value
+        }
+      try{
+        const carEdited = await api.changeDBCar(payload)
+        renderCar(carEdited)
+        document.getElementById('form-car').reset()
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  
+    })
+    form.addEventListener('dragover', (event) => event.preventDefault())
+    form.addEventListener('drop', (event) => {
+      event.preventDefault()
+      const car = JSON.parse(event.dataTransfer.getData('car'))
+      renderCarInForm(car)
+      
+    })
+
 }
 
 function renderOriginsInSelect(origins) {
@@ -30,10 +66,49 @@ function renderOriginsInSelect(origins) {
     select.appendChild(newOption);
   });
 }
+function formHasErrors() {
+  let hasErrors = false
+  document.getElementById('errores').innerHTML = ""
+  const ids = ["name", "km", "motor", "price", "origin"]
+  ids.forEach(fieldName => {
+    let input = null
+    if(fieldName == 'motor') {
+      input = document.querySelector('#form-car input[name="motor"')
+    } else {
+    input = document.getElementById(fieldName)
+    }
+    if(!input.checkValidity()){
+      const newError = document.createElement('p')
+      newError.textContent = input.parentElement.previousElementSibling.textContent.trim() + ' ' + input.validationMessage
+      document.getElementById('errores').appendChild(newError)
+      if (!hasErrors) {
+        input.focus()
+        hasErrors = true
+      }
+    }
 
+  })
+  if (Number(document.getElementById('km').value) > 100000 
+    && !document.querySelector(`#form-car input[name="motor"]:checked`)?.value){
+      const newError = document.createElement('p')
+      newError.textContent = "Si el coche tiene más de 100.000 km hay que validar el motor"
+      document.getElementById('errores').appendChild(newError)
+      if (!hasErrors) {
+        document.getElementById('km').focus()
+        hasErrors = true
+      }
+    }
+  return hasErrors
+}
 function renderCar(car) {
-  const carDiv = document.createElement("div");
-  carDiv.className = "card h-100";
+  let adding = false
+  let carDiv = document.getElementById('car-' + car.id)
+  if (!carDiv) {
+    carDiv = document.createElement("div");
+    carDiv.className = "card h-100";
+    carDiv.id ='car-' + car.id
+    adding = true
+  }
   carDiv.innerHTML = `
     <img class="card-img-top" src="/public/assets/photos/${car.img ? car.img : 'nofoto.jpg'}" alt="${car.name}" />
 <div class="card-body p-4">
@@ -49,8 +124,9 @@ function renderCar(car) {
   <button class="delete btn btn-sm  btn-danger"><span class="material-icons">delete</span></button>
 </div>
 `
-
-    document.getElementById('cars').appendChild(carDiv)
+if (adding) {
+  document.getElementById('cars').appendChild(carDiv)
+}
     carDiv.querySelector('button.validate').addEventListener('click', async () => {
         try {
             await api.validateDBCar(car.id)
@@ -65,6 +141,7 @@ function renderCar(car) {
 
     carDiv.querySelector('button.edit').addEventListener('click', () => renderCarInForm(car))
     carDiv.querySelector('button.delete').addEventListener('click', async () => {
+      
         if (confirm('¿Quieres borrar el coche ' + car.name + '?')) {
             try {
                 await api.removeDBCar(car.id)
@@ -74,14 +151,18 @@ function renderCar(car) {
             }
         }
     })
+    carDiv.querySelector('img').addEventListener('dragstart', (event) => {
+      event.dataTransfer.setData('car', JSON.stringify(car))
+    })
 }
 
 function renderCarInForm(car) {
+    document.getElementById('errores').innerHTML = ""
     document.getElementById('id').value = car.id
     document.getElementById('name').value = car.name
     document.getElementById('km').value = car.km
     document.getElementById('price').value = car.price
-    document.querySelector(`#form-car input[name="motor"][value="${car.motor}"`).checked = true
+    document.querySelector(`#form-car input[name="motor"][value="${car.motor}"]`).checked = true
     document.getElementById('origin').value = car.origin
     document.getElementById('img').value = car.img
 }   
