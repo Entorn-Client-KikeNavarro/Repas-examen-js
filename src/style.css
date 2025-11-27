@@ -1,0 +1,12 @@
+h1 {
+    margin: 0 auto;
+}
+
+.error {
+    color: red;
+}
+
+.selected {
+    color: blue;
+    font-weight: bold;
+}

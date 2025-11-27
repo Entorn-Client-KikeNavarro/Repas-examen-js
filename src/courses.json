@@ -1,0 +1,269 @@
+{
+  "courses": [
+    {
+      "id": 3,
+      "grade": "M",
+      "course": "APD (LOE)",
+      "idFamily": 2,
+      "vliteral": "Atenció a persones en situació de dependència",
+      "cliteral": "Atención a personas en situación de dependencia"
+    },
+    {
+      "id": 4,
+      "grade": "M",
+      "course": "FARMACIA (LOE)",
+      "idFamily": 6,
+      "vliteral": "Farmàcia i parafarmàcia",
+      "cliteral": "Farmacia y parafarmacia"
+    },
+    {
+      "id": 8,
+      "grade": "M",
+      "course": "CAE (LOGSE)",
+      "idFamily": 6,
+      "vliteral": "Cures auxiliares d'infermeria",
+      "cliteral": "Cuidados auxiliares de enfermería"
+    },
+    {
+      "id": 12,
+      "grade": "M",
+      "course": "CUINA (LOE)",
+      "idFamily": 10,
+      "vliteral": "Cuina i gastronomia",
+      "cliteral": "Cocina y gastronomía"
+    },
+    {
+      "id": 16,
+      "grade": "M",
+      "course": "ESTÈTICA I BELL. (LOE)",
+      "idFamily": 3,
+      "vliteral": "Estètica i bellesa",
+      "cliteral": "Estética y belleza"
+    },
+    {
+      "id": 18,
+      "grade": "M",
+      "course": "GESTIÓ ADMVA. (LOE)",
+      "idFamily": "5",
+      "vliteral": "Gestió administrativa",
+      "cliteral": "Gestión administrativa"
+    },
+    {
+      "id": 20,
+      "grade": "M",
+      "course": "PERRUQUERIA (LOE)",
+      "idFamily": 3,
+      "vliteral": "Perruqueria i cosmètica capilar",
+      "cliteral": "Peluquería y cosmética capilar"
+    },
+    {
+      "id": 22,
+      "grade": "M",
+      "course": "SERV. RESTAURACIÓ (LOE)",
+      "idFamily": 10,
+      "vliteral": "Servicis en restauració",
+      "cliteral": "Servicios en restauración"
+    },
+    {
+      "id": 24,
+      "grade": "M",
+      "course": "SMX  (LOE)",
+      "idFamily": "24",
+      "vliteral": "Sistemes microinformàtics i xarxes",
+      "cliteral": "Sistemas microinformáticos y redes"
+    },
+    {
+      "id": 28,
+      "grade": "S",
+      "course": "ADM. I FINANC. (LOE)",
+      "idFamily": 5,
+      "vliteral": "Administració i finances",
+      "cliteral": "Administración y finanzas"
+    },
+    {
+      "id": 29,
+      "grade": "S",
+      "course": "ASSISTENCIA A LA DIRECCIÓ (LOE)",
+      "idFamily": 5,
+      "vliteral": "Assitència a la direcció",
+      "cliteral": "Asistencia a la dirección"
+    },
+    {
+      "id": 30,
+      "grade": "S",
+      "course": "ASIX (LOE)",
+      "idFamily": "24",
+      "vliteral": "Administració de sistemes informàtics en xarxa",
+      "cliteral": "Administración de sistemas informáticos en red"
+    },
+    {
+      "id": 32,
+      "grade": "S",
+      "course": "DAM (LOE)",
+      "idFamily": 24,
+      "vliteral": "Desenrotllament d'aplicacions multiplataforma",
+      "cliteral": "Desarrollo de aplicaciones multiplataforma"
+    },
+    {
+      "id": 35,
+      "grade": "S",
+      "course": "DAW (LOE)",
+      "idFamily": 24,
+      "vliteral": "Desenrotllament d'aplicacions web",
+      "cliteral": "Desarrollo de aplicaciones  web"
+    },
+    {
+      "id": 36,
+      "grade": "S",
+      "course": "DIREC. CUINA (LOE)",
+      "idFamily": 10,
+      "vliteral": "Direcció de cuina",
+      "cliteral": "Dirección de cocina"
+    },
+    {
+      "id": 38,
+      "grade": "S",
+      "course": "DIREC.RESTAURACIÓ (LOE)",
+      "idFamily": 10,
+      "vliteral": "Direcció en servicis de restauració",
+      "cliteral": "Dirección en servicios de restauración"
+    },
+    {
+      "id": 39,
+      "grade": "S",
+      "course": "EDUC.INFANTIL (LOE)",
+      "idFamily": 2,
+      "vliteral": "Educació infantil",
+      "cliteral": "Educación infantil"
+    },
+    {
+      "id": 42,
+      "grade": "S",
+      "course": "ESTET.INTEG. (LOE)",
+      "idFamily": 3,
+      "vliteral": "Estètica integral i benestar",
+      "cliteral": "Estética integral y bienestar"
+    },
+    {
+      "id": 44,
+      "grade": "S",
+      "course": "INTEGR.SOCIAL (LOE)",
+      "idFamily": 2,
+      "vliteral": "Integració Social",
+      "cliteral": "Integración Social"
+    },
+    {
+      "id": 45,
+      "grade": "S",
+      "course": "LABORATORI (LOE)",
+      "idFamily": 6,
+      "vliteral": "Laboratori clínic i biomèdic",
+      "cliteral": "Laboratorio clinico y biomédico"
+    },
+    {
+      "id": 51,
+      "grade": "S",
+      "course": "RXMN (LOE)",
+      "idFamily": 6,
+      "vliteral": "Imatge per al diagnòtic i medicina nuclear",
+      "cliteral": "Imagen para el diagnóstico y medicina nuclear"
+    },
+    {
+      "id": 54,
+      "grade": "S",
+      "course": "SALUT AMBIENTAL (LOGSE)",
+      "idFamily": 6,
+      "vliteral": "Salut ambiental",
+      "cliteral": "Salud ambiental"
+    },
+    {
+      "id": 56,
+      "grade": "S",
+      "course": "TASOCIT (LOE)",
+      "idFamily": 2,
+      "vliteral": "Animació Sociocultural i turística",
+      "cliteral": "Animación Sociocultural y turística"
+    },
+    {
+      "id": 57,
+      "grade": "B",
+      "course": "Perruqueria i Estética",
+      "idFamily": 3,
+      "vliteral": "FP Bàsica Perruqueria i Estètica",
+      "cliteral": "FP Básica Peluqueria i Estética"
+    },
+    {
+      "id": 58,
+      "grade": "S",
+      "course": "QUIMICA I SALUT AMBIENTAL",
+      "idFamily": 25,
+      "vliteral": "Química i Salut Ambiental",
+      "cliteral": "Química i Salut Ambiental"
+    },
+    {
+      "id": 59,
+      "grade": "E",
+      "course": "CIBERSEGURETAT",
+      "idFamily": "24",
+      "vliteral": "Curs d'EspecialiTzació en Ciberseguretat en Entorns de les Tecnologies de la Información",
+      "cliteral": "Curso de Especialización en Ciberseguridad en Entornos de las Tecnologías de la Información"
+    }
+  ],
+  "families": [
+    {
+      "id": 1,
+      "cliteral": "INGLES",
+      "vliteral": "ANGLES"
+    },
+    {
+      "id": 2,
+      "cliteral": "SERVICIOS A LA COMUNIDAD",
+      "vliteral": "SEVEIS A LA COMUNITAT"
+    },
+    {
+      "id": 3,
+      "cliteral": "IMAGEN PERSONAL",
+      "vliteral": "IMATGE PERSONAL"
+    },
+    {
+      "id": 5,
+      "cliteral": "DEPARTAMENTO ADMINISTRATIVO",
+      "vliteral": "DEPARTAMENT ADMINISTRACIÓ"
+    },
+    {
+      "id": 6,
+      "cliteral": "DEPARTAMENTO SANITARIO",
+      "vliteral": "DEPARTAMENT SANITARI"
+    },
+    {
+      "id": 9,
+      "cliteral": "EXTENSION CULTURAL",
+      "vliteral": "EXTENSIO CULTURAL"
+    },
+    {
+      "id": 10,
+      "cliteral": "HOSTELERIA Y TURISMO",
+      "vliteral": "HOSTELERIA I TURISME"
+    },
+    {
+      "id": 12,
+      "cliteral": "FORMACION Y ORIENTACION LABORA",
+      "vliteral": "FORMACIO I ORIENTACIO LABORAL"
+    },
+    {
+      "id": 18,
+      "cliteral": "ORIENTACION",
+      "vliteral": "ORIENTACIO"
+    },
+    {
+      "id": 24,
+      "cliteral": "DEPARTAMENTO INFORMATICA",
+      "vliteral": "DEPARTAMENT INFORMÀTICA"
+    },
+    {
+      "id": 25,
+      "cliteral": "Seguridad y Medio Ambiente",
+      "vliteral": "Seguretat i Medi Ambient"
+    }
+  ]
+}
