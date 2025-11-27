@@ -1,0 +1,144 @@
+{
+  "cars": [
+    {
+      "id": "1",
+      "name": "Dacia Logan",
+      "km": 97000,
+      "price": 3890,
+      "validated": true,
+      "origin": 1,
+      "motor": true,
+      "img": "i2191924230.webp"
+    },
+    {
+      "id": "2",
+      "name": "Mazda 3",
+      "km": 212000,
+      "price": 3200,
+      "validated": false,
+      "origin": 1,
+      "motor": true,
+      "img": "i2191924288.webp"
+    },
+    {
+      "id": "3",
+      "name": "Opel Vivaro",
+      "km": 130000,
+      "price": 12000,
+      "validated": false,
+      "origin": 2,
+      "motor": true,
+      "img": "i2191919812.webp"
+    },
+    {
+      "id": "4",
+      "name": "BMW Serie 3",
+      "km": 67000,
+      "price": 18000,
+      "validated": false,
+      "origin": 4,
+      "motor": true,
+      "img": "i2191919834.webp"
+    },
+    {
+      "id": "5",
+      "name": "Dacia Sandero Stepway",
+      "km": 47000,
+      "price": 8000,
+      "validated": false,
+      "origin": 3,
+      "motor": false,
+      "img": "i2180201519.webp"
+    },
+    {
+      "id": "6",
+      "name": "Volswagen Golf",
+      "km": 97000,
+      "price": 4500,
+      "validated": false,
+      "origin": 2,
+      "motor": true,
+      "img": "i2191932425.webp"
+    },
+    {
+      "id": "7",
+      "name": "Seat Ibiza",
+      "km": 297000,
+      "price": 2380,
+      "validated": false,
+      "origin": 1,
+      "motor": true
+    },
+    {
+      "id": "8",
+      "name": "Audi A3",
+      "km": 97000,
+      "price": 13890,
+      "validated": false,
+      "origin": 2,
+      "motor": true,
+      "img": "i2191934823.webp"
+    },
+    {
+      "id": "9",
+      "name": "BMW X6",
+      "km": 117000,
+      "price": 38900,
+      "validated": false,
+      "origin": 2,
+      "motor": false,
+      "img": "i2191923503.webp"
+    },
+    {
+      "id": "10",
+      "name": "Nissan Patrol",
+      "km": 297000,
+      "price": 5890,
+      "validated": false,
+      "origin": 2,
+      "motor": true,
+      "img": "i2191932581.webp"
+    },
+    {
+      "id": "11",
+      "name": "Peugeot 308",
+      "km": 130000,
+      "price": 3100,
+      "origin": 4,
+      "validated": true,
+      "motor": true
+    },
+    {
+      "id": "12",
+      "name": "Porsche Booxter S",
+      "km": 147000,
+      "price": 16500,
+      "validated": false,
+      "origin": 1,
+      "motor": true,
+      "img": "i2191920704.webp"
+    }
+  ],
+  "origins": [
+    {
+      "id": "1",
+      "descrip": "Particular"
+    },
+    {
+      "id": "2",
+      "descrip": "Concesionario"
+    },
+    {
+      "id": "3",
+      "descrip": "Empresa"
+    },
+    {
+      "id": "4",
+      "descrip": "Flota"
+    },
+    {
+      "id": "5",
+      "descrip": "Profesional"
+    }
+  ]
+}
