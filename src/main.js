@@ -212,5 +212,5 @@ function renderCiclo(ciclo){
 }
 
 function isValidForm() {
-    
+    const hola = 0
 }
