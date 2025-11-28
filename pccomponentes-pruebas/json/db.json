@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "MSI GeForce RTX 4060",
+      "stock": 50,
+      "price": 329,
+      "validated": true,
+      "category": 1,
+      "refurbished": false,
+      "img": "gpu.webp"
+    },
+    {
+      "id": "2",
+      "name": "Intel Core i9-13900K",
+      "stock": 12,
+      "price": 589,
+      "validated": true,
+      "category": 2,
+      "refurbished": false,
+      "img": "cpu.webp"
+    },
+    {
+      "id": "3",
+      "name": "Logitech MX Master 3SE",
+      "stock": 1,
+      "price": 99,
+      "validated": false,
+      "category": "3",
+      "refurbished": true,
+      "img": "mouse.webp"
+    },
+    {
+      "id": "4",
+      "name": "Corsair Vengeance 32GB",
+      "stock": 200,
+      "price": 85,
+      "validated": false,
+      "category": 1,
+      "refurbished": false,
+      "img": "ram.webp"
+    },
+    {
+      "id": "5",
+      "name": "Samsung Odyssey G5",
+      "stock": 5,
+      "price": 299,
+      "validated": false,
+      "category": 4,
+      "refurbished": true,
+      "img": "monitor.webp"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "descrip": "Componentes"
+    },
+    {
+      "id": "2",
+      "descrip": "Procesadores"
+    },
+    {
+      "id": "3",
+      "descrip": "Periféricos"
+    },
+    {
+      "id": "4",
+      "descrip": "Monitores"
+    },
+    {
+      "id": "5",
+      "descrip": "Portátiles"
+    }
+  ]
+}
