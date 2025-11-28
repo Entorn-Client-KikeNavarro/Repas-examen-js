@@ -59,22 +59,22 @@ document.querySelector('#app').innerHTML = `
                   <legend>Añadir ciclo</legend>
                   <div class="form-group">
                       <label>Nombre:</label>
-                      <input type="text" class="form-control" id="form-course">
+                      <input type="text" class="form-control" id="form-course" required minlength="10" maxlength="50">
                       <span class="error">
                   </div>
                   <div class="form-group">
                       <label>Descripción:</label>
-                      <input type="text" class="form-control" id="form-cliteral">
+                      <input type="text" class="form-control" id="form-cliteral" required maxlength="80">
                       <span class="error">
                   </div>
                   <div class="form-group">
                       <label>Descripció:</label>
-                      <input type="text" class="form-control" id="form-vliteral">
+                      <input type="text" class="form-control" id="form-vliteral" required maxlength="80">
                       <span class="error">
                   </div>
                   <div class="form-group">
                       <label>Familia:</label>
-                      <select class="form-control" id="form-idFamily">
+                      <select class="form-control" id="form-idFamily" required>
                           <option value="">- Selecciona una familia -</option>
                       </select>
                       <span class="error">
@@ -83,8 +83,17 @@ document.querySelector('#app').innerHTML = `
                     <label>Grado:</label>
                     <br>
                     <!-- Repetiremos las 3 líneas siguientes para cada grado -->
-                    <input type="radio" class="form-check-input" ...>
-                    <label>...</label>
+                    <input type="radio" class="form-check-input" name="grade" value="B" required>
+                    <label>Básico</label>
+                    <br>
+                    <input type="radio" class="form-check-input" name="grade" value="M">
+                    <label>Medio</label>
+                    <br>
+                    <input type="radio" class="form-check-input" name="grade" value="S">
+                    <label>Superior</label>
+                    <br>
+                    <input type="radio" class="form-check-input" name="grade" value="E">
+                    <label>Especialización</label>
                     <br>
                     <span class="error">
                   </div>
@@ -103,6 +112,25 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 async function init() {
+    document.querySelector('form').addEventListener('submit', async (ev) =>{
+        ev.preventDefault();
+        if(!isValidForm()) {
+            return
+        }
+        const newCicle = {
+            course: document.getElementById("form-course").value,
+            cliteral: document.getElementById("form-cliteral").value,
+            vliteral: document.getElementById("form-vliteral").value,
+            idFamily: document.getElementById("form-idFamily").value,
+            grade: document.querySelector('input[name=grade]:checked').value
+        }
+        try {
+            const ciclo =  await api.addDBCiclo(newCicle)
+            renderCiclo(ciclo)
+        } catch (error) {
+            renderMessage("error", error)
+        }
+    })
     try {
         const families = await api.getDBfamilies()
         families //.sort((a, b) => a.cliteral - b.cliteral)
@@ -131,19 +159,25 @@ function renderFamily(family) {
     const tbody = document.querySelector(`#families tbody`)
     const newTr = document.createElement("tr")
     newTr.innerHTML = `
-    <tr>${family.id}</tr>
-    <tr>${family.cliteral}</tr>
-    <tr>${family.vliteral}</tr>
+    <td>${family.id}</td>
+    <td>${family.cliteral}</td>
+    <td>${family.vliteral}</td>
     `
     tbody.appendChild(newTr)
 
     newTr.addEventListener("click", async () => {
         try{
-            const ciclos = await api.getDBItems()
+            document.querySelector(`#courses tbody`).innerHTML = "";
+            const ciclos = await api.getDBItems(family.id)
+            document.getElementById("total").textContent = ciclos.length
+            document.getElementById("nom-familia").textContent = family.cliteral
             newTr.classList.add("selected")
             ciclos.forEach((ciclo) => {
                 renderCiclo(ciclo)
+                
             })
+            
+            
         }catch (error) {
             renderMessage('error', error)
         }
@@ -158,6 +192,25 @@ async function renderSelectFamilies(family) {
     select.appendChild(newOption)
 }
 
-function renderCiclo(){
+function renderCiclo(ciclo){
+    const tbody = document.querySelector(`#courses tbody`)
+    const newTr = document.createElement("tr")
+    newTr.innerHTML = `
+    <td title=${ciclo.id}>${ciclo.course}</td>
+    <td>${ciclo.cliteral}</td>
+    <td>${ciclo.vliteral}</td>
+    <td>${ciclo.grade}</td>
+    <td>
+        <button>
+            <span class="material-icons">edit</span>
+        </button>
+    </td>
+    `   
+    tbody.appendChild(newTr)
+    
 
+}
+
+function isValidForm() {
+    
 }

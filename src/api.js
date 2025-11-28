@@ -1,8 +1,8 @@
 const SERVER = "http://localhost:3000";
 const TABLE = "courses"
 // GET (Todos)
-async function getDBItems() {
-        const response = await fetch(`${SERVER}/${TABLE}`);
+async function getDBItems(idFamily) {
+        const response = await fetch(`${SERVER}/${TABLE}?idFamily=${idFamily}`);
         if (!response.ok) {
             throw `Error ${response.status} de la BBDD: ${response.statusText}`
         }
@@ -35,9 +35,9 @@ async function getDBItem(collection, idOrObject) {
 }
 
 // POST (Añadir)
-async function addDBItem(collection, item) {
+async function addDBCiclo(item) {
     try {
-        const response = await fetch(SERVER + "/" + collection, {
+        const response = await fetch(`${SERVER}/${TABLE}`, {
             method: 'POST',
             body: JSON.stringify(item),
             headers: {
@@ -116,7 +116,7 @@ export {
     getDBfamilies,
     getDBItems,
     getDBItem,
-    addDBItem,
+    addDBCiclo,
     removeDBItem,
     changeDBItem,
     editDBItem
