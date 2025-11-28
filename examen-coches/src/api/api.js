@@ -67,8 +67,8 @@ async function removeDBCar(carId) {
 async function changeDBCar(car) {
     try {
         const response = await fetch(`${SERVER}/cars/${car.id}`, {
-            method: 'PUT',
-            body: JSON.stringify(item),
+            method: 'PATCH',
+            body: JSON.stringify(car),
             headers: {
                 'Content-Type': 'application/json'
             }

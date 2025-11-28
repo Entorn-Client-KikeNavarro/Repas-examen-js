@@ -5,7 +5,7 @@
       "name": "Dacia Logan",
       "km": 97000,
       "price": 3890,
-      "validated": true,
+      "validated": false,
       "origin": 1,
       "motor": true,
       "img": "i2191924230.webp"
@@ -43,11 +43,11 @@
     {
       "id": "5",
       "name": "Dacia Sandero Stepway",
-      "km": 47000,
+      "km": 470000,
       "price": 8000,
       "validated": false,
       "origin": 3,
-      "motor": false,
+      "motor": "false",
       "img": "i2180201519.webp"
     },
     {
@@ -86,7 +86,7 @@
       "price": 38900,
       "validated": false,
       "origin": 2,
-      "motor": false,
+      "motor": "false",
       "img": "i2191923503.webp"
     },
     {
@@ -105,7 +105,7 @@
       "km": 130000,
       "price": 3100,
       "origin": 4,
-      "validated": true,
+      "validated": false,
       "motor": true
     },
     {
